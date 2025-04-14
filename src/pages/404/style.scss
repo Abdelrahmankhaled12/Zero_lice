@@ -1,0 +1,60 @@
+@import '../../mixins.scss';
+
+.notFoundPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+        .errorCode {
+            font-size: 170px;
+            text-align: center;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .errorContent  {
+            position: relative;
+            top: -60px;
+            line-height: 1.5;
+            h1 {
+                text-align: center;
+                margin-top: 0;
+                font-size: 27px;
+                color: #000000;
+                @include sm {
+                    font-size: 50px;
+                }
+            }
+            p {
+                text-align: center;
+                margin: 20px auto;
+                width: auto;
+                color: #000000;
+                font-size: 20px;
+                font-weight: 600;
+                @include md {
+                    width: 820px;
+                }
+            }
+            button {
+                display: block;
+                background-color: var(--primary);
+                color: #ffffff;
+                font-size: 22px;
+                font-weight: 600;
+                height: 60px;
+                border-radius: 10px;
+                border: 1px solid var(--primary);
+                transition: 0.5s;
+                cursor: pointer;
+                padding: 0px 35px;
+                width: fit-content;
+                margin: 25px auto;
+                &:hover {
+                    background-color: #ffffff;
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+}

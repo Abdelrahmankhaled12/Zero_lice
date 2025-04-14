@@ -1,0 +1,53 @@
+@import '../../mixins.scss';
+
+.faqsContainer {
+    padding: 10px 0px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    position: relative;
+    top: -50px;
+    background-color: #ffffff;
+    position: relative;
+    .faqsContent {
+        .faqSection {
+            margin-top: 30px;
+            h2 {
+                font-size: 27px;
+                font-weight: 600;
+                border-left: 4px solid var(--primary);
+                padding-left: 15px;
+                line-height: 1.2;
+                @include sm {
+                    font-size: 40px;
+                }
+            }
+            .accordion {
+                background-color: transparent;
+                box-shadow: none;
+                padding: 10px 5px;
+                background-color: transparent !important;
+                border-bottom: 1px solid #0000001d;
+                &::before {
+                    position: relative;
+                }
+                * {
+                    box-shadow: none;
+                    border: none !important;
+                }
+                .questionTitle {
+                    font-size: 17px;
+                    font-weight: 500;
+                    @include sm {
+                        font-size: 20px;
+                    }
+                }
+                .questionAnswer {
+                    font-size: 20px;
+                }
+                svg {
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+}

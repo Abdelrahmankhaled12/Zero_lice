@@ -1,0 +1,109 @@
+@import "../../mixins.scss";
+
+footer {
+    background-color: #eff3fa;
+    padding-top: 20px;
+    .footer__grid {
+        display: grid;
+        margin-bottom: 20px;
+        gap: 20px;
+        @include sm {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include md {
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        }
+        .footer__logo-section {
+            .footer__logo {
+                text-align: center;
+                img {
+                    width: 100%;
+                    max-width: 180px;
+                }
+            }
+        }
+        .footer__section {
+            h2 {
+                color: var(--primary);
+            }
+            ul {
+                list-style: none;
+                li {
+                    display: flex;
+                    gap: 8px;
+                    margin-top: 10px;
+                    &.footer__clickable {
+                        display: flex;
+                        gap: 8px;
+                        margin-top: 5px;
+                        cursor: pointer;
+                        transition: 0.5s;
+                        .footer__icon {
+                            svg {
+                                font-size: 12px;
+                            }
+                        }
+                        p {
+                            transition: 0.5s;
+                        }
+                        &:hover {
+                            p {
+                                letter-spacing: 1.5px;
+                            }
+                        }
+                    }
+                    .footer__icon {
+                        svg {
+                            color: var(--primary);
+                        }
+                    }
+                    p {
+                        color: var(--grey-color);
+                        font-weight: 600;
+                    }
+                    a {
+                        color: var(--grey-color);
+                        font-weight: 600;
+                    }
+                }
+            }
+            .footer__social-links {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin-top: 20px;
+                @include sm {
+                    justify-content: start;
+                }
+                .footer__social-icon {
+                    width: 40px;
+                    height: 40px;
+                    background-color: var(--primary);
+                    border-radius: 50%;
+                    border: 1px solid var(--primary);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #ffffff;
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: 0.5s;
+
+                    &:hover {
+                        background-color: #ffffff;
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
+    .footer__copyright {
+        background-color: var(--secondary);
+        text-align: center;
+        padding: 10px;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 15px;
+    }
+}

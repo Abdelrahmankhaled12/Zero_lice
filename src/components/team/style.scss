@@ -1,0 +1,75 @@
+@import "../../mixins.scss";
+
+.teamSection {
+    padding: 50px 0px;
+    background-color: #eff3fa;
+    .teamHeader  {
+        line-height: 1.2;
+        border-left: 4px solid var(--primary);
+        padding-left: 15px;
+        span {
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        h1 {
+            color: #000000;
+            font-size: 40px;
+            font-weight: 600;
+        }
+        p {
+            color: var(--grey-color);
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+    }
+    .teamGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        @include sm {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include md {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .teamMember  {
+            position: relative;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            .memberImage {
+                background-color: var(--primary);
+                border-radius: 10px;
+                height: 280px;
+                position: relative;
+                img {
+                    width: 245px;
+                    height: 400px;
+                    object-fit: cover;
+                    border-radius: 20px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+            .memberInfo   {
+                text-align: center;
+                padding-top: 10px;
+                line-height: 1.5;
+                h3 {
+                    font-size: 22px;
+                    font-weight: 600;
+                    color: var(--secondary);
+                }
+                p {
+                    font-size: 17px;
+                    color: var(--grey-color);
+                }
+            }
+        }
+    }
+}

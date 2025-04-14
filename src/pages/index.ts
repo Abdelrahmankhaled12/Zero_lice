@@ -1,0 +1,6 @@
+export { default as NotFountPage } from './404/NotFountPage';
+export { default as AboutUs } from './about/AboutUs';
+export { default as ContactUs } from './contact/ContactUs';
+export { default as Faqs } from './faqs/Faqs';
+export { default as Home } from './home/Home';
+export { default as Pricing } from './pricing/Pricing';

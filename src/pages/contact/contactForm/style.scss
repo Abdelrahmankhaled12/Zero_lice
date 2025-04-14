@@ -1,0 +1,142 @@
+@import "../../../mixins.scss";
+
+.contactForm-section {
+    padding: 0px 0px 50px;
+
+    .contactForm-section__header {
+        line-height: 1.2;
+        border-left: 4px solid var(--primary);
+        padding-left: 15px;
+
+        span {
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 30px;
+            font-weight: 600;
+            @include sm {
+                font-size: 40px;
+            }
+        }
+
+        p {
+            color: var(--grey-color);
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 4px;
+            @include sm {
+                font-size: 20px;
+            }
+        }
+
+    }
+
+    .contactForm-section_grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 20px;
+        @include sm {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include md {
+            grid-template-columns: 1.8fr 1fr;
+        }
+
+        form {
+            .input-group {
+                margin-bottom: 10px;
+                .input-wrapper {
+                    position: relative;
+                    svg {
+                        position: absolute;
+                        top: 56%;
+                        transform: translateY(-50%);
+                        left: 15px;
+                        font-size: 22px;
+                        color: var(--primary);
+                        &.input-icon_textarea {
+                            top: 10%;
+                            transform: translateY(0%);
+                        }
+                    }
+                }
+                input {
+                    width: 100%;
+                    margin-top: 7px;
+                    padding: 8px 20px 8px 45px;
+                    font-size: 18px;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid rgba(0, 0, 0, 0.178);
+                }
+                textarea {
+                    width: 100%;
+                    margin-top: 7px;
+                    padding: 8px 20px 8px 45px;
+                    font-size: 18px;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid rgba(0, 0, 0, 0.178);
+                    min-height: 200px;
+                }
+            }
+            button {
+                display: block;
+                width: 100%;
+                font-size: 20px;
+                text-transform: uppercase;
+                padding: 10px 40px;
+                transition: 0.5s;
+                font-weight: 600;
+                border-radius: 10px;
+                cursor: pointer;
+                text-align: center;
+                background-color: var(--primary);
+                color: #f9f9f9;
+                border: 1px solid var(--primary);
+                margin-top: 10px;
+                &:hover {
+                    color: var(--primary);
+                    background-color: transparent;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            li {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 10px;
+                &:first-of-type {
+                    margin-top: 0px;
+                }
+                .footer__icon {
+                    svg {
+                        color: var(--primary);
+                        font-size: 20px;
+                        position: relative;
+                        top: 4px;
+                    }
+                }
+                a {
+                    color: var(--grey-color);
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+            }
+        }
+        iframe {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    }
+}

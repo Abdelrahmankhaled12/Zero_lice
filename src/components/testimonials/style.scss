@@ -1,0 +1,208 @@
+@import "../../mixins.scss";
+
+.testimonials {
+    padding: 50px 0;
+    background-color: #eff3fa;
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+
+        @include md {
+            gap: 40px;
+        }
+
+        .text-content {
+            h1 {
+                font-size: 2.5rem;
+                color: var(--secondary);
+                line-height: 1.2;
+                margin-bottom: 20px;
+                font-weight: 700;
+                @include sm {
+                    font-size: 3.5rem;
+                }
+            }
+
+            .subtitle {
+                color: var(--grey-color);
+                font-size: 1.4rem;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            .cta-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 1rem;
+                padding: 15px 20px;
+                border-radius: 50px;
+                font-weight: 600;
+                background-color: var(--primary);
+                color: white;
+                border: 1px solid var(--primary);
+                transition: all 0.5s ease;
+                cursor: pointer;
+
+                @include sm {
+                    padding: 15px 40px;
+                    font-size: 1.1rem;
+                }
+                .arrow-icon {
+                    transform: rotate(45deg);
+                    transition: transform 0.5s ease;
+                    font-size: 1rem;
+                }
+
+                &:hover {
+                    background-color: transparent;
+                    color: var(--primary);
+                }
+            }
+        }
+
+        .testimonials-container {
+            position: relative;
+            overflow: hidden;
+
+            .testimonial-slider {
+                position: relative;
+                height: 100%;
+                width: 99%;
+                height: 320px;
+                margin-bottom: 20px;
+                @include sm {
+                    height: 260px;
+                }
+
+                .testimonial-box {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transition: opacity 0.8s ease, transform 0.8s ease;
+                    transform: translateX(30px);
+                    padding: 20px 30px;
+                    border-radius: 15px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    background-color: #ffffff;
+
+                    &.active {
+                        opacity: 1;
+                        transform: translateX(0);
+                        z-index: 1;
+                    }
+
+                    .quote-icon {
+                        color: var(--primary);
+                        font-size: 2.5rem;
+                        margin-bottom: 10px;
+                        opacity: 0.3;
+                    }
+
+                    .testimonial-text {
+                        font-size: 1.1rem;
+                        line-height: 1.7;
+                        color: #555;
+                        margin-bottom: 15px;
+                        font-style: italic;
+                    }
+
+                    .client-info {
+                        line-height: 1.5;
+                        .rating {
+                            color: #FFD700;
+                            font-size: 1.5rem;
+                        }
+
+                        .client-name {
+                            font-size: 1.2rem;
+                            color: var(--secondary);
+                        }
+
+                        .client-role {
+                            color: var(--grey-color);
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+
+            .testimonial-controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 2;
+
+                .indicators {
+                    display: flex;
+                    gap: 10px;
+                    padding: 0;
+                    list-style: none;
+                    margin-left: 20px;
+
+                    li {
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: #ddd;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+
+                        &.active {
+                            background-color: var(--primary);
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+
+                .navigation-buttons {
+                    display: flex;
+                    gap: 8px;
+
+                    .nav-button {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 1px solid #00000022;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        color: #555;
+                        background-color: transparent;
+                        font-size: 15px;
+                        color: var(--primary);
+
+                        &:hover {
+                            background: var(--primary);
+                            color: white;
+                            border-color: var(--primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+
+            .text-content {
+                text-align: center;
+                margin-bottom: 40px;
+
+                .cta-button {
+                    margin: 0 auto;
+                }
+            }
+            
+        }
+    }
+}
