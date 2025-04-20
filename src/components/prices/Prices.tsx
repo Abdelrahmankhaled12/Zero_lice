@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { ContentWrapper } from '../../components';
-import "./style.scss"
+import "./style.scss";
+import { PRICING_GET } from '../../utils';
+import icon from "../../assets/gift_3258504.png";
+import { CONTACT_WHATSS } from '../../constants';
 
 /**
  * Interface for pricing plan
@@ -13,100 +16,198 @@ interface PricingPlan {
     price: string;
     description: string;
     features: string[];
+    image?: string;
 }
 
 /**
  * Prices Component
  * 
  * Displays pricing plans with features and call-to-action buttons.
+ * Includes special partnership programs and family discounts.
  * 
  * @returns {React.ReactElement} - The rendered pricing section
  */
-const Prices: React.FC = () => {
 
-    const pricingPlans: PricingPlan[] = [
-        {
-            id: 1,
-            title: 'Standard Treatment',
-            price: '$199.00',
-            description: 'Complete lice elimination for one person using our proven four-step removal process and premium products.',
-            features: [
-                'One treatment session for one person',
-                'Accurate diagnosis',
-                'One week of preventative products'
-            ]
-        },
-        {
-            id: 2,
-            title: 'Family Treatment',
-            price: '$499.00',
-            description: 'Treat up to 4 family members in one visit. Includes full home inspection and prevention plan.',
-            features: [
-                'Treatment for up to 4 people',
-                'Comprehensive home examination',
-                'One month follow-up'
-            ],
-        },
-        {
-            id: 3,
-            title: 'School/Nurse Program',
-            price: '$1,999.00',
-            description: 'Custom solutions for schools and organizations including staff training and group discounts.',
-            features: [
-                'Unlimited treatment for individuals',
-                'Full house disinfection',
-                '3-month follow-up'
-            ]
+/**
+ * Handles navigation to the booking page
+ */
+const handleBookNowClick = () => {
+    window.open(CONTACT_WHATSS, '_blank');
+};
+
+
+const Prices: React.FC = () => {
+    const [pricingPlans, setPricingPlans] = useState<PricingPlan[] | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchPricingData = async () => {
+            setIsLoading(true);
+            setError(null);
+
+            try {
+                const response = await PRICING_GET();
+
+                if (response.status === 200) {
+                    setPricingPlans(response.data.data);
+                } else {
+                    throw new Error('Failed to fetch pricing data');
+                }
+            } catch (err) {
+                console.error("Error fetching pricing plans:", err);
+                setError('Failed to load pricing information. Please try again later.');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchPricingData();
+    }, []);
+
+    /**
+     * Renders the main pricing plans
+     */
+    const renderPricingPlans = () => {
+        if (isLoading) {
+            return <div className="loading-message">Loading pricing plans...</div>;
         }
-    ];
+
+        if (error) {
+            return <div className="error-message" role="alert">{error}</div>;
+        }
+
+        return pricingPlans?.map((plan, index) => (
+            <div key={`plan-${plan.id}`} className="pricingCard"
+                data-aos="fade-up"
+                data-aos-delay={(index + 1) * 100}
+                data-aos-duration="700"
+            >
+                <div className="cardContent">
+                    <div className="cardHeader">
+                        {plan.image && (
+                            <div className="image">
+                                <img
+                                    src={plan.image}
+                                    alt=""
+                                    aria-hidden="true" // Decorative image
+                                />
+                            </div>
+                        )}
+                        <h3>{plan.title}</h3>
+                        <div className="planPrice">AED {plan.price}</div>
+                        <p>{plan.description}</p>
+                    </div>
+
+                    <ul className="features-list">
+                        {plan.features.map((feature, index) => (
+                            <li key={`feature-${plan.id}-${index}`}>
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <button
+                        className="cta-button"
+                        onClick={handleBookNowClick}
+                        aria-label={`Select ${plan.title} plan for ${plan.price}`}
+                    >
+                        Book Now
+                        <FontAwesomeIcon
+                            icon={faArrowUp}
+                            aria-hidden="true"
+                            className="icon-right"
+                        />
+                    </button>
+                </div>
+            </div>
+        ));
+    };
+
+    /**
+     * Renders the partnership program card
+     */
+    const renderPartnershipCard = () => (
+        <div key="partnership-card" className="pricingCard"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="700"
+        >
+            <div className="cardContent">
+                <div className="partnershipCard">
+                    <h3>Partnership Programs</h3>
+                    <p>For institutions, daycare centers for groups of 10+ call us</p>
+                    <button
+                        onClick={handleBookNowClick}
+
+                    >
+                        <FontAwesomeIcon
+                            icon={faPhoneVolume}
+                            aria-hidden="true"
+                        />
+                        056 3810797
+
+                    </button>
+                    <p>to discuss tailored solutions. <br />Contract pricing available upon request</p>
+                </div>
+            </div>
+        </div>
+    );
+
+    /**
+     * Renders the family discount card
+     */
+    const renderFamilyDiscountCard = () => (
+        <div key="family-discount" className="familyDiscount"
+            data-aos="fade-up"
+            data-aos-delay="600"
+            data-aos-duration="700"
+        >
+            <div className="cardContent">
+                <div className="partnershipCard">
+                    <div className="image">
+                        <img
+                            src={icon}
+                            alt="Gift icon representing family discount"
+                        />
+                    </div>
+                    <h3>Family Discount</h3>
+
+                    <div className="offer">
+                        <p>2 Family Members</p>
+                        <span>10% Discount</span>
+                    </div>
+                    <div className="offer">
+                        <p>3 Family Members</p>
+                        <span>15% Discount</span>
+                    </div>
+                    <div className="offer">
+                        <p>4+ Family Members</p>
+                        <span>20% Discount</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 
     return (
-        <section className={"prices"} aria-labelledby="prices-heading">
+        <section className="prices" aria-labelledby="prices-heading">
             <ContentWrapper>
                 {/* Pricing Header */}
-                <div className={"pricesHeader"}>
+                <div className="pricesHeader">
                     <h1 id="prices-heading">
                         Pricing Plans to Fit All Your Needs
                     </h1>
-                    <p>
+                    <p className="subtitle">
                         Choose a plan that fits your budget and get rid of lice forever
                     </p>
                 </div>
 
-                {/* Pricing Plans */}
-                <div className={"pricingPlans"}>
-                    {pricingPlans.map((plan) => (
-                        <div
-                            key={plan.id}
-                            className={`pricingCard`}
-                        >
-                            <div className={"cardContent"}>
-                                <div className={"cardHeader"}>
-                                    <h3>{plan.title}</h3>
-                                    <div className={"planPrice"}>{plan.price}</div>
-                                    <p>{plan.description}</p>
-                                </div>
-
-                                <ul >
-                                    {plan.features.map((feature, index) => (
-                                        <li key={index}>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                <button
-                                    aria-label={`Select ${plan.title} plan for ${plan.price}`}
-                                >
-                                    Book Now
-                                    <FontAwesomeIcon
-                                        icon={faArrowUp}
-                                        aria-hidden="true"
-                                    />
-                                </button>
-                            </div>
-                        </div>
-                    ))}
+                {/* Pricing Plans Grid */}
+                <div className="pricingPlans">
+                    {renderPricingPlans()}
+                    {renderPartnershipCard()}
+                    {renderFamilyDiscountCard()}
                 </div>
             </ContentWrapper>
         </section>

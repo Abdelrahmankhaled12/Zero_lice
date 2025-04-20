@@ -17,7 +17,11 @@ const BannerFaqs: React.FC = () => {
             aria-labelledby="banner-faqs-heading"
         >
             <ContentWrapper>
-                <div className="bannerContent">
+                <div className="bannerContent"
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    data-aos-duration="700"
+                >
                     <h1 id="banner-faqs-heading">
                         All You Need to Know About <span>Lice Treatment</span>
                     </h1>

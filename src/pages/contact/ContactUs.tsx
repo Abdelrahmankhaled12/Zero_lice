@@ -4,12 +4,11 @@ import {
     Emergency,
     Footer,
     Header,
-    OurTeam
 } from '../../components';
 import { useEffect, useState } from 'react';
 import BannerContact from './bannerContact/BannerContact';
 import ContactForm from './contactForm/ContactForm';
-import "./style.scss"
+
 /**
  * FAQs Page Component
  * 
@@ -26,7 +25,7 @@ const ContactUs: React.FC = () => {
         // Disable animation after delay
         const timer = setTimeout(() => {
             setAnimationOff(false);
-        }, 1200);
+        }, 3000);
         // Clean up timer on unmount
         return () => clearTimeout(timer);
     }, []);
@@ -37,14 +36,16 @@ const ContactUs: React.FC = () => {
 
     return (
         <Effect>
-            <div className="contactUs">
-                <Header headerHome={true} />
-                <BannerContact />
-                <OurTeam />
-                <ContactForm />
-                <Emergency />
-                <Footer />
-            </div>
+            <Header headerHome={true} />
+            <BannerContact />
+            <ContactForm />
+            <Emergency
+                title={"Lice spreads fast! <span>  Don't Wait </span>"}
+                subtitle={[" Book your appointment"]}
+                image={"/cta.jpg"}
+                buttonText={"Call us now"}
+            />
+            <Footer />
         </Effect>
     );
 };

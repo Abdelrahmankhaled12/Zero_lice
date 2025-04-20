@@ -23,7 +23,7 @@ const NotFoundPage: React.FC = () => {
         // Disable animation after delay
         const animationTimer = setTimeout(() => {
             setAnimationOff(false);
-        }, 1200);
+        }, 3000);
 
         // Clean up timer on unmount
         return () => clearTimeout(animationTimer);

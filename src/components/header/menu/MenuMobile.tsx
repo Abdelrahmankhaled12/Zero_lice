@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { HEADER_LINKS } from '../../../constants';
+import { CONTACT_WHATSS, HEADER_LINKS } from '../../../constants';
 import logo from '../../../assets/logo_header.png';
 import './style.scss';
 
@@ -97,7 +97,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
                         {/* Book Now Button */}
                         <button
                             className={"bookButton"}
-                            onClick={() => handleNavigation('/book')}
+                            onClick={() =>  window.open(CONTACT_WHATSS, '_blank')}
                             aria-label="Book an appointment"
                         >
                             <span>Book Now</span>

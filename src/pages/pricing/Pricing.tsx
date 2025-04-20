@@ -7,8 +7,7 @@ import {
     Header,
     OurServices,
     Prices,
-    Testimonials,
-} from '../../components'; 
+} from '../../components';
 import BannerPricing from './bannerPricing/BannerPricing';
 import "./style.scss"
 
@@ -28,7 +27,7 @@ const Pricing: React.FC = () => {
         // Disable animation after delay
         const animationTimer = setTimeout(() => {
             setAnimationOff(false);
-        }, 1200);
+        }, 3000);
 
         // Clean up timers on unmount
         return () => {
@@ -48,10 +47,13 @@ const Pricing: React.FC = () => {
                 <BannerPricing />
                 <OurServices />
                 <Prices />
-                <Testimonials />
             </main>
 
-            <Emergency />
+            <Emergency
+                title={"Transparent Pricing – Finally, Lice Removal <span> Without Hidden Fees! </span>"}
+                image={"/cta2.jpg"}
+                buttonText={"Call us now"}
+            />
             <Footer />
         </Effect>
     );

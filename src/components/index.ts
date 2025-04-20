@@ -7,8 +7,7 @@ export { default as Footer } from './footer/Footer';
 export { default as Header } from './header/Header';
 export { default as Prices } from './prices/Prices';
 export { default as OurServices } from './services/OurServices';
-export { default as Spinner } from './spinner/Spinner';
 export { default as OurTeam } from './team/OurTeam';
 export { default as Testimonials } from './testimonials/Testimonials';
-export { default as WhyChooseUs } from './whyChooseUs/WhyChooseUs';
 
+export { default as ButtonWhatss } from './buttonWhatss/ButtonWhatss';

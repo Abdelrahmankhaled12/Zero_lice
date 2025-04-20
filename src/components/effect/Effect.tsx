@@ -1,3 +1,4 @@
+import { ButtonWhatss } from '..';
 import ButtonScroll from '../buttonScroll/ButtonScroll';
 import './style.scss'; // Importing style file
 
@@ -13,6 +14,7 @@ const Effect: React.FC<EffectProps> = ({ children }) => {
                 <div className="children">
                     {children} {/* Rendering children components */}
                     <ButtonScroll />
+                    <ButtonWhatss />
                 </div>
             </div>
         </>

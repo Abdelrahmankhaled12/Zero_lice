@@ -11,6 +11,7 @@
     .about-section__grid {
         display: grid;
         gap: 40px;
+        align-items: center;
         @include md {
             grid-template-columns: 0.8fr 1fr;
         }
@@ -22,7 +23,7 @@
             border-radius: 8px;
             img {
                 width: 100%;
-                height: 480px;
+                height: 520px;
                 border-radius: 25px;
                 object-fit: cover;
             }
@@ -43,17 +44,28 @@
                 }
                 h1 {
                     color: #000000;
-                    font-size: 40px;
+                    font-size: 70px;
                     font-weight: 600;
+                    color: var(--secondary);
                 }
             }
             .about-section__body {
                 padding-left: 15px;
+                h3 {
+                    color: var(--primary);
+                    margin-top: 15px;
+                    font-size: 24px;
+                }
                 p {
                     color: var(--grey-color);
                     font-size: 18px;
                     font-weight: 500;
                     margin-top: 10px;
+                    span {
+                        color: var(--secondary);
+                        font-weight: 650;
+                        font-size: 20px;
+                    }
                 }
                 .about-section__stats {
                     display: flex;

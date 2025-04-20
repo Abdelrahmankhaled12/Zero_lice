@@ -16,9 +16,12 @@ const BannerAbout = () => {
             aria-labelledby="banner-about-heading"
         >
             <ContentWrapper>
-                <div className="bannerContent">
+                <div className="bannerContent"
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    data-aos-duration="700"
+                >
                     <h1 id="banner-about-heading">More Than Just Treatment – We’re Your Partners in <span>Lice-Free </span>Living!</h1>
-                    <p>Since 2015, we’ve helped 10,000+ families say goodbye to lice with dignity and science.</p>
                 </div>
             </ContentWrapper>
         </section>

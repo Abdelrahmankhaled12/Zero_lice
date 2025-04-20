@@ -5,9 +5,9 @@ import {
     Emergency,
     Footer,
     Header
-} from '../../components'; 
+} from '../../components';
 import BannerFaqs from './bannerFaqs/BannerFaqs';
-import './style.scss'; 
+import './style.scss';
 import {
     Accordion,
     AccordionSummary,
@@ -44,7 +44,7 @@ const Faqs: React.FC = () => {
         // Disable animation after delay
         const timer = setTimeout(() => {
             setAnimationOff(false);
-        }, 1200);
+        }, 3000);
         // Clean up timer on unmount
         return () => clearTimeout(timer);
     }, []);
@@ -68,11 +68,18 @@ const Faqs: React.FC = () => {
                             >
                                 <h2
                                     id={`section-${sectionIndex}-heading`}
+                                    data-aos="fade-up"
+                                    data-aos-delay="50"
+                                    data-aos-duration="700"
                                 >
                                     {section.title}
                                 </h2>
 
-                                <div>
+                                <div
+                                    data-aos="fade-up"
+                                    data-aos-delay="100"
+                                    data-aos-duration="700"
+                                >
                                     {section.questions.map((question, questionIndex) => {
                                         const panelId = `panel-${sectionIndex}-${questionIndex}`;
 
@@ -102,7 +109,9 @@ const Faqs: React.FC = () => {
                                                         component="div"
                                                         className="questionAnswer"
                                                     >
-                                                        {question.answer}
+                                                        <div
+                                                            dangerouslySetInnerHTML={{ __html: question.answer }}
+                                                        />
                                                     </Typography>
                                                 </AccordionDetails>
                                             </Accordion>
@@ -115,7 +124,12 @@ const Faqs: React.FC = () => {
                 </ContentWrapper>
             </main>
 
-            <Emergency />
+            <Emergency
+                title={" Let’s Solve Your  <span> Lice Problem </span> Today"}
+                subtitle={["Emergency Lice Service - Open Every Day, For Every Customer.", "Lice don’t wait—and neither should you! Book your same-day appointment"]}
+                image={"/cta.jpg"}
+                buttonText={"Book Appointment"}
+            />
             <Footer />
         </Effect>
     );

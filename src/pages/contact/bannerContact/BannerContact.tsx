@@ -17,12 +17,16 @@ const BannerContact: React.FC = () => {
             aria-labelledby="banner-contact-heading"
         >
             <ContentWrapper>
-                <div className="bannerContent">
+                <div className="bannerContent"
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    data-aos-duration="700"
+                >
                     <h1 id="banner-contact-heading">
                         Your <span> Lice Treatment </span>  Experts Are One Click Away
                     </h1>
                     <p>
-                        Ask, inquire, or book an appointment – our medical team is ready to assist
+                        Ask, inquire or book appointment – our team is ready to assist.
                     </p>
                 </div>
             </ContentWrapper>

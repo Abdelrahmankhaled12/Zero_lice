@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Effect, Footer, Header, OurServices, Prices, Testimonials , Emergency  , WhyChooseUs, Animation} from "../../components"
+import { Effect, Footer, Header, Prices, Emergency, Animation, OurServices } from "../../components"
 import AboutSection from "./about/AboutSection"
 import HeroBanner from "./herobanner/HeroBanner"
+import WhyChooseUsHome from "./whyChooseUsHome/WhyChooseUsHome";
 
 /**
  * Home Page Component
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
         // Disable animation after delay
         const timer = setTimeout(() => {
             setAnimationOff(false);
-        }, 1200);
+        }, 3000);
         // Clean up timer on unmount
         return () => clearTimeout(timer);
     }, []);
@@ -28,14 +29,18 @@ const Home: React.FC = () => {
 
     return (
         <Effect>
-            <Header headerHome={true}/>
+            <Header headerHome={true} />
             <HeroBanner />
             <AboutSection />
-            <WhyChooseUs />
+            <WhyChooseUsHome />
             <OurServices />
             <Prices />
-            <Testimonials />
-            <Emergency />
+            <Emergency
+                title={" Let’s Solve Your  <span> Lice Problem </span> Today"}
+                subtitle={["Emergency Lice Service - Open Every Day, For Every Customer.", "Lice don’t wait—and neither should you! Book your same-day appointment"]}
+                image={"/cta.jpg"}
+                buttonText={"Book Appointment"}
+            />
             <Footer />
         </Effect>
     );

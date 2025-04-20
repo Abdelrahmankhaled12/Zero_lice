@@ -16,7 +16,11 @@ const BannerPricing = () => {
             aria-labelledby="banner-pricing-heading"
         >
             <ContentWrapper>
-                <div className="bannerContent">
+                <div className="bannerContent"
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    data-aos-duration="700"
+                >
                     <h1 id="banner-pricing-heading">Invest in your <span> family's comfort... </span> at prices that suit everyone </h1>
                     <p>High quality at affordable prices... because your health doesn't have to be compromised.</p>
                 </div>

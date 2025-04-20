@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane, faBars } from '@fortawesome/free-solid-svg-icons';
 import MenuMobile from './menu/MenuMobile';
-import { HEADER_LINKS } from '../../constants';
+import { CONTACT_WHATSS, HEADER_LINKS } from '../../constants';
 import logo from '../../assets/logo_header.png';
 import './style.scss'
 
@@ -104,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ headerHome = false }) => {
                         {/* Book Now Button */}
                         <button
                             className={"bookButton"}
-                            onClick={() => handleNavigate('/book')}
+                            onClick={() =>  window.open(CONTACT_WHATSS, '_blank')}
                             aria-label="Book an appointment"
                         >
                             <span>Book Now</span>

@@ -3,48 +3,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    faFacebookF,
-    faInstagram,
-    faXTwitter,
-    faLinkedinIn
-} from "@fortawesome/free-brands-svg-icons";
-import {
-    faEnvelope,
-    faLocationDot,
-    faPhoneVolume,
     faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../assets/logo.png";
 import './style.scss';
 import { ContentWrapper } from '..';
-
-/**
- * Interface for contact information items
- */
-interface ContactInfo {
-    icon: typeof faLocationDot;
-    text: string;
-    type: 'address' | 'phone' | 'email';
-}
-
-/**
- * Interface for navigation links
- */
-interface NavLink {
-    icon: typeof faArrowRight;
-    text: string;
-    path: string;
-}
-
-/**
- * Interface for social media links
- */
-interface SocialLink {
-    icon: typeof faFacebookF;
-    url: string;
-    name: string;
-}
+import { CONTACT_INFO, IMPORTANT_LINKS, NAV_LINKS, SOCIAL_LINKS } from '../../constants';
 
 /**
  * Footer Component
@@ -56,72 +21,6 @@ interface SocialLink {
  */
 const Footer: React.FC = () => {
     const navigate = useNavigate();
-
-    /**
-     * Contact information data
-     */
-    const CONTACT_INFO: ContactInfo[] = [
-        {
-            icon: faLocationDot,
-            text: "123 Street, New York, USA",
-            type: 'address'
-        },
-        {
-            icon: faPhoneVolume,
-            text: "+012 345 67890",
-            type: 'phone'
-        },
-        {
-            icon: faEnvelope,
-            text: "info@example.com",
-            type: 'email'
-        }
-    ];
-
-    /**
-     * Navigation links data
-     */
-    const NAV_LINKS: NavLink[] = [
-        { icon: faArrowRight, text: "Home", path: "/" },
-        { icon: faArrowRight, text: "About us", path: "/about" },
-        { icon: faArrowRight, text: "Pricing", path: "/pricing" },
-        { icon: faArrowRight, text: "Booking", path: "/book" },
-        { icon: faArrowRight, text: "Contact us", path: "/contact" }
-    ];
-
-    /**
-     * Important links data
-     */
-    const IMPORTANT_LINKS: NavLink[] = [
-        { icon: faArrowRight, text: "Privacy Policy", path: "/privacy" },
-        { icon: faArrowRight, text: "Terms and Conditions", path: "/terms" }
-    ];
-
-    /**
-     * Social media links data
-     */
-    const SOCIAL_LINKS: SocialLink[] = [
-        {
-            icon: faFacebookF,
-            url: "https://facebook.com",
-            name: "Facebook"
-        },
-        {
-            icon: faInstagram,
-            url: "https://instagram.com",
-            name: "Instagram"
-        },
-        {
-            icon: faXTwitter,
-            url: "https://twitter.com",
-            name: "Twitter"
-        },
-        {
-            icon: faLinkedinIn,
-            url: "https://linkedin.com",
-            name: "LinkedIn"
-        }
-    ];
 
     /**
      * Handles navigation to a specific path
@@ -200,7 +99,7 @@ const Footer: React.FC = () => {
                                     aria-label={`Navigate to ${link.text}`}
                                 >
                                     <div className="footer__icon" aria-hidden="true">
-                                        <FontAwesomeIcon icon={link.icon} />
+                                        <FontAwesomeIcon icon={faArrowRight} />
                                     </div>
                                     <p className="footer__link-text">{link.text}</p>
                                 </li>
@@ -222,7 +121,7 @@ const Footer: React.FC = () => {
                                     aria-label={`Navigate to ${link.text}`}
                                 >
                                     <div className="footer__icon" aria-hidden="true">
-                                        <FontAwesomeIcon icon={link.icon} />
+                                        <FontAwesomeIcon icon={faArrowRight} />
                                     </div>
                                     <p className="footer__link-text">{link.text}</p>
                                 </li>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ContentWrapper } from '../../../components';
 import './style.scss';
+import { CONTACT_WHATSS } from '../../../constants';
 
 /**
  * Interface for slide data
@@ -8,7 +9,6 @@ import './style.scss';
 interface Slide {
     className: string;
     title: string;
-    span: string;
     description: string;
     buttonText: string;
     buttonAriaLabel?: string;
@@ -29,26 +29,23 @@ const HeroBanner: React.FC = () => {
     const slides: Slide[] = [
         {
             className: "slide_1",
-            title: "Goodbye lice...",
-            span:" hello comfort!",
-            description: "Safe treatment in just 3 steps.",
+            title: "Zero Lice, <span> Happy Heads !",
+            description: "Safe, Gentle & Experience Lice Removal at Your Doorstep! - Serving Dubai, Sharjah , Ajman & across the UAE – For Families, Schools & Adults!",
             buttonText: "Book your examination now",
             buttonAriaLabel: "Book a lice examination appointment"
         },
         {
             className: "slide_2",
-            title: "Catch the",
-            span:"problem early!",
-            description: "Accurate diagnosis with a 20% discount on the first examination.",
-            buttonText: "Know the symptoms",
-            buttonAriaLabel: "Learn about lice symptoms"
+            title: "No More Itching, No More Stress – <span>  Just Results! </span>",
+            description: "Because Lice Shouldn’t Steal Your Peace of Mind.",
+            buttonText: "Start Your Inspection Now",
+            buttonAriaLabel: "Start Your Inspection Now"
         },
         {
             className: "slide_3",
-            title: "Specialized medical consultation...",
-            span:"at your home!",
-            description: "Home check-up service is now available.",
-            buttonText: "Learn more about the service",
+            title: "We don’t stop until your <span> lice-free!  </span>",
+            description: "Every treatment follows strict hygiene protocols - No harsh chemicals just a thorough, hands-on approach",
+            buttonText: "We’ll Be There in a Nit-Pick!",
             buttonAriaLabel: "Learn about home consultation service"
         }
     ];
@@ -94,11 +91,18 @@ const HeroBanner: React.FC = () => {
                         role="group"
                     >
                         <ContentWrapper>
-                            <div className={"slideContent"}>
-                                <h1>{slide.title} <span>{slide.span}</span> </h1>
+                            <div className={"slideContent"}
+                                data-aos="fade-right"
+                                data-aos-delay="50"
+                                data-aos-duration="700"
+                            >
+                                <h1
+                                    dangerouslySetInnerHTML={{ __html: slide.title }}
+                                />
                                 <p>{slide.description}</p>
                                 <button
                                     aria-label={slide.buttonAriaLabel || slide.buttonText}
+                                    onClick={() => window.open(CONTACT_WHATSS, '_blank')}
                                 >
                                     {slide.buttonText}
                                 </button>

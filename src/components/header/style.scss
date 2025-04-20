@@ -58,8 +58,12 @@ header {
                     display: none;
                     gap: 40px;
 
-                    @include md {
+                    @include lg {
                         display: flex;
+                    }
+
+                    @media only screen and (max-width: 1155px) {
+                        display: none;
                     }
 
                     li {
@@ -85,7 +89,7 @@ header {
                 }
             }
             .bookButton {
-                display: none;
+                display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
@@ -106,10 +110,10 @@ header {
                     color: var(--primary);
                     background-color: transparent;
                 }
-
-                @include md {
-                    display: flex;
+                @media only screen and (max-width: 1155px) {
+                    display: none;
                 }
+
             }
             .menuToggle {
                 background-color: transparent;
@@ -120,9 +124,10 @@ header {
                 display: block;
                 outline: none;
 
-                @include md {
+                @media only screen and (min-width: 1155px) {
                     display: none;
                 }
+                
             }
         }
     }
@@ -149,7 +154,7 @@ header {
 @media (min-width: 1150px) {
     header {
         .container {
-            width: 1120px;
+            width: 1050px;
         }
     }
 }

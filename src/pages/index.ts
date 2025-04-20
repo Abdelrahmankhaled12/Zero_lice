@@ -4,3 +4,6 @@ export { default as ContactUs } from './contact/ContactUs';
 export { default as Faqs } from './faqs/Faqs';
 export { default as Home } from './home/Home';
 export { default as Pricing } from './pricing/Pricing';
+export { default as Privacy } from './privacy/Privacy';
+export { default as Terms } from './terms/Terms';
+export { default as OurProcess } from './ourProcess/OurProcess';

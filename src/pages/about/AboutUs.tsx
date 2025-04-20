@@ -5,11 +5,10 @@ import {
   Emergency,
   Footer,
   Header,
-  OurTeam,
-  WhyChooseUs
 } from '../../components';
 import BannerAbout from './bannerAbout/BannerAbout';
 import Mission from './mission/Mission';
+import WhyChooseUsAbout from './whyChooseUsAbout/WhyChooseUsAbout';
 
 /**
  * AboutUs Page Component
@@ -30,7 +29,7 @@ const AboutUs: React.FC = () => {
     // Disable animation after delay
     const animationTimer = setTimeout(() => {
       setAnimationOff(false);
-    }, 1200);
+    }, 3000);
 
     // Clean up timers on unmount
     return () => {
@@ -49,11 +48,15 @@ const AboutUs: React.FC = () => {
       <main id="main-content">
         <BannerAbout />
         <Mission />
-        <WhyChooseUs />
-        <OurTeam />
+        <WhyChooseUsAbout />
       </main>
 
-      <Emergency />
+      <Emergency
+        title={" Let’s Solve Your  <span> Lice Problem </span> Today"}
+        subtitle={["Emergency Lice Service - Open Every Day, For Every Customer.", "Lice don’t wait—and neither should you! Book your same-day appointment"]}
+        image={"/cta.jpg"}
+        buttonText={"Book Appointment"}
+      />
       <Footer />
     </Effect>
   );

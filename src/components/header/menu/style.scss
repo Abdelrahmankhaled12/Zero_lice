@@ -11,6 +11,9 @@
     transform: translateX(100%);
     transition: 0.5s;
     display: block;
+    @media only screen and (min-width: 1155px) {
+        display: none;
+    }
     .menuContainer {
         display: flex;
         justify-content: start;
@@ -107,9 +110,7 @@
             }
         }
     }
-    @include md {
-        display: none;
-    }
+
 }
 
 
