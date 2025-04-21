@@ -4,10 +4,19 @@ import {
     faArrowUp
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import aboutImage from "../../../assets/about.jpg"; // Using path alias
+import aboutImage from "../../../assets/2149490624.jpg"; // Using path alias
 import './style.scss'; // SCSS module for better scoping
 import image from "../../../assets/phase1.jpg"
+import image2 from "../../../assets/phase2.jpg"
+import image3 from "../../../assets/phase3.jpg"
+import image4 from "../../../assets/phase4.jpg"
 
+import { CONTACT_WHATSS } from "../../../constants";
+
+
+const handleBookNowClick = () => {
+    window.open(CONTACT_WHATSS, '_blank', 'noopener,noreferrer');
+};
 
 const ProcessSection = () => {
 
@@ -22,19 +31,19 @@ const ProcessSection = () => {
             number: "02",
             title: "Advanced Lice Removal Machine",
             description: "Our medical-grade suction system removes 95%+ of lice and eggs in one treatment—even resistant strains. No chemicals, just clinically proven results.",
-            image: image,
+            image: image2,
         },
         {
             number: "03",
             title: "Precision Nit Combing",
             description: "After suction, we use a medical-grade stainless steel comb with micro-grooved teeth to remove 100% of remaining lice and eggs—no survivors.",
-            image: image,
+            image: image3,
         },
         {
             number: "04",
             title: "Microscopic Final Check",
             description: `We perform a magnifying glass inspection of every strand to confirm 100% lice and nit removal - because "mostly" isn't good enough.`,
-            image: image,
+            image: image4,
         },
     ]
     return (
@@ -80,7 +89,7 @@ const ProcessSection = () => {
                                 {/* Call to Action Button */}
                                 <button
                                     className="about-section__cta-button"
-                                    // onClick={handleLearnMoreClick}
+                                    onClick={handleBookNowClick}
                                     aria-label="Learn more about our services"
                                 >
                                     Book Now
@@ -101,10 +110,24 @@ const ProcessSection = () => {
                         {steps.map((step) => (
                             <div key={step.number} className="step">
                                 {/* Content */}
-                                <div className="content">
-                                    <span className="step-number">{step.number}</span>
-                                    <h3>{step.title}</h3>
-                                    <p>{step.description}</p>
+                                <div className="content"
+                                >
+                                    <span className="step-number"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                        data-aos-duration="700"
+                                    >{step.number}</span>
+                                    <h3
+                                        data-aos="fade-up"
+                                        data-aos-delay="110"
+                                        data-aos-duration="700"
+                                    >{step.title}</h3>
+                                    <p
+                                        data-aos="fade-up"
+                                        data-aos-delay="120"
+                                        data-aos-duration="700"
+                                    >
+                                        {step.description}</p>
                                 </div>
 
                                 {/* Timeline Point & Image */}

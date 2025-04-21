@@ -13,11 +13,11 @@ import {
 import image from "../assets/table.jpg"
 
 
-export const CONTACT_NUMBER = "05 381 0797"
+export const CONTACT_NUMBER = "0563810797"
 export const CONTACT_EMAIL = "contact@zerolice.ae"
 export const CONTACT_FACEBOOK = "https://www.facebook.com/share/16CA9e4bJo/?mibextid=wwXIfr"
 export const CONTACT_INSTA = "https://www.instagram.com/zerolice.ae?igsh=N2Zzc29zZG1mMWpt&utm_source=qr"
-export const CONTACT_WHATSS = "https://wa.me/201070437868"
+export const CONTACT_WHATSS = `https://wa.me/971${CONTACT_NUMBER}`
 
 
 
